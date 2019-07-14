@@ -83,7 +83,7 @@ glimpse(hr)
 table(hr$left)
 
 
-#hr$left=as.numeric(hr$left==1)
+
 
 
 ################ NA values
@@ -155,8 +155,6 @@ library(pROC)
 val.score=predict(log_fit,newdata =hr.testing_data,type='response')
 val.score[1:10]
 
-#logistic reg will redict prob of varaiable 1 to 10 varab prob for eg
-
 
 #area under the curve (auc)
 
@@ -164,7 +162,9 @@ auc(roc(hr.testing_data$left,val.score))
 
 ## AUC score is 0.7246 and our requirement is . 
 #Your auc score for test data should come out to be more than 0.84
-
+       
+# ## score is very less so logistic model cannot be fiited into the data very well, hence wil use 
+## Decision Treee (DT) and Random foreast (RF)
 
 
 #--------------------------------------------------------------------------------------------------------------
@@ -217,7 +217,7 @@ hr.rf
 # error with respect to class 1 is (31%) 782/(782+1682)
 
 # however over all estimate error is 12.04%
-############################################################################
+########################################################################################################################################
 
 ## predict the score on testing data
 
